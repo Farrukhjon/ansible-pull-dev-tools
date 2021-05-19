@@ -1,0 +1,16 @@
+---
+- name: Initial
+  connection: local
+  hosts: 127.0.0.1
+tasks:
+  - name: Create the Tools diretrories
+    file:
+      pathe: { { item } }
+      state: directory
+      mode: u=rwe,g=rw,o=r
+    loop:
+      - /vagrant/home/tools/jdk
+      - /vagrant/home/tools/maven
+      - /vagrant/home/tools/gradle
+      - /vagrant/home/tools/idea
+...
