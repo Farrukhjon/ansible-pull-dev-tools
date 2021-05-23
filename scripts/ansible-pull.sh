@@ -2,12 +2,12 @@
 
 if ! command -v git &>/dev/null; then
   echo "git was not found, trying to install it"
-  sudo dnf -y update && sudo dnf -y install git
+  exit
 fi
 
 if ! command -v ansible-pull &>/dev/null; then
   echo "ansible was not found, trying to install it"
-  sudo dnf install ansible
+  exit
 fi
 
 ansible-pull --checkout=main \
