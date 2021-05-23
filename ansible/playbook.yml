@@ -8,7 +8,7 @@
       file:
         path: "{{ item }}"
         state: directory
-        mode: u=rwe,g=rw,o=r
+        mode: u=rwx,g=rw,o=r
       loop:
         - "{{ tools_home }}/jdk"
         - "{{ tools_home }}/maven"
@@ -19,7 +19,7 @@
         - get_url:
             url: "{{ jdk_url }}"
             dest: "{{ tools_home }}/jdk"
-            mode: u=rwe,g=rw,o=r
+            mode: u=rwx,g=rw,o=r
         - unarchive:
             src: "{{ tools_home }}/jdk/{{ jdk_archive_name }}"
             dest: "{{ tools_home }}/jdk/{{ jdk_dir_name }}"
