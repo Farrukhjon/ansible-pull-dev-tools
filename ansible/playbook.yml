@@ -6,9 +6,9 @@
   tasks:
     - name: Create Tools Diretrories
       file:
-      path: "{{ item }}"
-      state: directory
-      mode: u=rwe,g=rw,o=r
+        path: "{{ item }}"
+        state: directory
+        mode: u=rwe,g=rw,o=r
       loop:
         - "{{ tools_home }}/jdk"
         - "{{ tools_home }}/maven"
