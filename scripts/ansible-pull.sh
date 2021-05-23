@@ -1,5 +1,11 @@
 #!/bin/bash
 
+sudo dnf -y update
+echo "Upgrade pip"
+python -m pip install --upgrade pip
+echo "Install Ansible by pip"
+python -m pip install wheel ansible
+
 if ! command -v git &>/dev/null; then
   echo "git was not found, trying to install it"
   exit
