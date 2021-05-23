@@ -13,8 +13,10 @@ Vagrant.configure("2") do |config|
    end
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo dnf -y update
+    dnf -y update
   SHELL
-  config.vm.provision "shell", path: "../scripts/ansible-pull.sh"
+  config.vm.provision "shell",
+    path: "../scripts/ansible-pull.sh",
+    privileged: false
 
 end
