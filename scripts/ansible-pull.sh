@@ -18,4 +18,4 @@ ansible-pull --checkout=main \
   --user vagrant \
   --only-if-changed \
   --verbose \
-  playbook.yml
+  ansible/playbook.yml
