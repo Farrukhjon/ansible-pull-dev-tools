@@ -1,0 +1,31 @@
+---
+- name: Development Tools Playbook
+  hosts: 127.0.0.1
+  vars_files:
+    - vars/shared-vars.yml
+  tasks:
+    - name: Create Tools Diretrories
+      file:
+      path: "{{ item }}"
+      state: directory
+      mode: u=rwe,g=rw,o=r
+      loop:
+        - "{{ tools_home }}/jdk"
+        - "{{ tools_home }}/maven"
+        - "{{ tools_home }}/gradle"
+        - "{{ tools_home }}/idea"
+    - name: JDK deployment
+      block:
+        - get_url:
+            url: "{{ jdk_url }}"
+            dest: "{{ tools_home }}/jdk"
+            mode: u=rwe,g=rw,o=r
+        - unarchive:
+            src: "{{ tools_home }}/jdk/{{ jdk_archive_name }}"
+            dest: "{{ tools_home }}/jdk/{{ jdk_dir_name }}"
+            remote_src: yes
+        - file:
+            src: "{{ tools_home }}/jdk/{{ jdk_dir_name }}"
+            dest: "{{ tools_home }}/jdk/current"
+            state: link
+...

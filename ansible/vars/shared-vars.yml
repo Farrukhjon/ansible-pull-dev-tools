@@ -1,0 +1,5 @@
+tools_home: "/home/vagrant/tools"
+jdk_archive_name: "OpenJDK11U-jdk_x64_linux_hotspot_11.0.11_9.tar.gz"
+jdk_dir_name: "OpenJDK11U_x64_11"
+jdk_version_path: "jdk-11.0.11%2B9/{{ jdk_archive_name }}"
+jdk_url: "https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/{{ jdk_version }}"
